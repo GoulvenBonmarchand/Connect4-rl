@@ -16,3 +16,6 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[project.gui-scripts]
+play = "main:main"
