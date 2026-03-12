@@ -1,5 +1,5 @@
-from player import render_board, ask_column
-from board import Board
+from .game.player import render_board, ask_column
+from .game.board import Board
 
 def main() -> None:
     board = Board()
