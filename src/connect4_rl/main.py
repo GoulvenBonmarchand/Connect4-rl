@@ -1,6 +1,7 @@
 from .game.human import human
-from .game.board import Board
 from .agents.random_agent import random_agent
+from .agents.smart_agent import smart_agent
+from .game.board import Board
 from .argparse import parse_args
 
 def render_board(board: Board) -> None:
@@ -41,7 +42,7 @@ def duo(player1, player2) -> None:
             current_player = board.turn
             move_fn = players[current_player]
 
-            col = move_fn(board, current_player)
+            col = move_fn(board.board, current_player)
 
             result = board.play(col)
 
@@ -76,12 +77,18 @@ def main() -> None:
 
     if args.player1 == "random" :
         player1 = random_agent
+    
+    if args.player1 == "smart" :
+        player1 = smart_agent
 
     if args.player2 == "random" :
         player2 = random_agent
 
     if args.player2 == "human" :
         player2 = human
+
+    if args.player2 == "smart" :
+        player2 = smart_agent
 
     duo(player1, player2)
 
