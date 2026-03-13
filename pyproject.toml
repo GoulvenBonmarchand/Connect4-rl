@@ -16,3 +16,9 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[project.scripts]
+play = "connect4_rl.main:main"
+
+[tool.uv]
+package = true
